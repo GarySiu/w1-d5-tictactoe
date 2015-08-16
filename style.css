@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+h1 {
+  text-align: center;
+ }
+div#container {
+  width: 300px;
+  margin: 0 auto;
+  line-height: 0;
+}
+div.grid {
+  display: inline-block;
+  border: 1px #000 solid;
+  width: 100px;
+  height: 100px;
+}
