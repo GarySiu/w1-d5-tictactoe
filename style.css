@@ -12,6 +12,13 @@ div#container {
   margin: 0 auto;
   line-height: 0;
 }
+.result {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  background-color: #FFF;
+}
+/*           Gridlines for the board          */
 div.grid {
   display: inline-block;
   /*border: 1px #000 solid;*/
