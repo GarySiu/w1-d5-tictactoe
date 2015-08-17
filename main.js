@@ -20,15 +20,23 @@ function resetGame() {
   document.getElementById('splash').innerText = "TIE GAME :(";
   step = 0;
 }
+function resetScore() {
+  document.getElementById('xWins').innerText = "0";
+  document.getElementById('oWins').innerText = "0";
+}
 function checkWinner(p) {
-  var check = p+p+p;
-  for(var w = 0; w < 8; w++) {
+  var check = p+p+p; // Check for 3 of the same symbol in a row
+  for(var w = 0; w < 8; w++) { //Go through all 8 possible winning conditions
     if (clickTarget[possibleWins[w][0]].innerText + clickTarget[possibleWins[w][1]].innerText + clickTarget[possibleWins[w][2]].innerText === check) {
-      //Highlight the winning array
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 3; i++) { //Highlight the winning array
          clickTarget[possibleWins[w][i]].style.color = "red";
        }
     document.getElementById('turn').innerText = p.toUpperCase() + " WINS!";
+    if (p === 'x') {
+      document.getElementById('xWins').innerText = parseInt(document.getElementById('xWins').innerText) + 1;
+    } else {
+      document.getElementById('oWins').innerText = parseInt(document.getElementById('oWins').innerText) + 1;
+    }
     playGame = false;
     return true;
     }
@@ -40,10 +48,10 @@ function checkWinner(p) {
   }
   return false;
 };
-//     document.getElementById('xWins').innerText = parseInt(document.getElementById('xWins').innerText) + 1;
-//     document.getElementById('oWins').innerText = parseInt(document.getElementById('oWins').innerText) + 1;
-// Event listener for reset button
+// Event listener for new game button (previously named reset)
 document.getElementById('reset').addEventListener('click',resetGame);
+// Event listener for score reset button
+document.getElementById('scoreReset').addEventListener('click',resetScore);
 // Event listener for the board
 for (var i = 0; i < clickTarget.length; i++) {
   clickTarget[i].addEventListener('click', function(){
