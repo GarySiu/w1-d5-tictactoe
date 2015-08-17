@@ -10,7 +10,7 @@ function togglePlayer(){
 }
 function resetGame() {
   for (var i = 0; i < clickTarget.length; i++) {
-    clickTarget[i].style.background = "white";
+    clickTarget[i].innerText = '';
   }
   document.getElementById('turn').innerText = "Player 1's turn";
 }
@@ -18,14 +18,14 @@ resetGame();
 document.getElementById('reset').addEventListener('click',resetGame);
 for (var i = 0; i < clickTarget.length; i++) {
   clickTarget[i].addEventListener('click', function(){
-    if (this.style.background !== "white") {
+    if (this.innerText !== "") {
       // console.log("This square is occupied")
       return;
     } else {
       switch (getPlayer()) {
-        case 0 : this.style.background = "blue"; togglePlayer();
+        case 0 : this.innerText = "x"; togglePlayer();
         break;
-        default: this.style.background = "red"; togglePlayer();
+        default: this.innerText = "o"; togglePlayer();
         break;
       }
     }
