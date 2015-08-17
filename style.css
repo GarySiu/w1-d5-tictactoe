@@ -4,9 +4,15 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+body {
+  font-family: 'Chewy', cursive;
+}
 h1 {
   text-align: center;
  }
+h2 {
+  padding: 5px 0;
+}
 div#container {
   width: 300px;
   margin: 0 auto;
@@ -16,6 +22,11 @@ div#container {
   height: 80px;
   width: 80px;
   margin: 10px;
+  position: absolute;
+  font-size: 100px;
+  padding-top: 30px;
+  -ms-text-align-last: center;
+  text-align: center;
 }
 /*           Gridlines for the board          */
 div.grid {

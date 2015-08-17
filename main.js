@@ -15,10 +15,11 @@ function resetGame() {
   document.getElementById('turn').innerText = "Player 1's turn";
 }
 resetGame();
+document.getElementById('reset').addEventListener('click',resetGame);
 for (var i = 0; i < clickTarget.length; i++) {
   clickTarget[i].addEventListener('click', function(){
     if (this.style.background !== "white") {
-      console.log("This square is occupied")
+      // console.log("This square is occupied")
       return;
     } else {
       switch (getPlayer()) {
