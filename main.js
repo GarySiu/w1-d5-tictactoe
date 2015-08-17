@@ -1,12 +1,10 @@
+// Initialization
 var clickTarget = document.getElementsByClassName('result');
-function getPlayer() {
-  var player;
-  document.getElementById('turn').innerText === "Player 1's turn" ? player = 0 : player = 1;
-  return player;
-}
+var step = 0;
 function togglePlayer(){
-  getPlayer() === 0 ? document.getElementById('turn').innerText = "Player 2's turn" :
+  step % 2 === 0 ? document.getElementById('turn').innerText = "Player 2's turn" :
   document.getElementById('turn').innerText = "Player 1's turn";
+  step++;
 }
 function resetGame() {
   for (var i = 0; i < clickTarget.length; i++) {
@@ -22,7 +20,7 @@ for (var i = 0; i < clickTarget.length; i++) {
       // console.log("This square is occupied")
       return;
     } else {
-      switch (getPlayer()) {
+      switch (step % 2) {
         case 0 : this.innerText = "x"; togglePlayer();
         break;
         default: this.innerText = "o"; togglePlayer();
