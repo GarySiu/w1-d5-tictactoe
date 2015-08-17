@@ -8,13 +8,25 @@ function togglePlayer(){
   getPlayer() === 0 ? document.getElementById('turn').innerText = "Player 2's turn" :
   document.getElementById('turn').innerText = "Player 1's turn";
 }
+function resetGame() {
+  for (var i = 0; i < clickTarget.length; i++) {
+    clickTarget[i].style.background = "white";
+  }
+  document.getElementById('turn').innerText = "Player 1's turn";
+}
+resetGame();
 for (var i = 0; i < clickTarget.length; i++) {
   clickTarget[i].addEventListener('click', function(){
-    switch (getPlayer()) {
-      case 0 : this.style.background = "blue"; togglePlayer();
-      break;
-      default: this.style.background = "red"; togglePlayer();
-      break;
+    if (this.style.background !== "white") {
+      console.log("This square is occupied")
+      return;
+    } else {
+      switch (getPlayer()) {
+        case 0 : this.style.background = "blue"; togglePlayer();
+        break;
+        default: this.style.background = "red"; togglePlayer();
+        break;
+      }
     }
   });
 }
